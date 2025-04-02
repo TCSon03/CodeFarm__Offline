@@ -10,16 +10,17 @@
 <body>
     <h1>Task 21</h1>
     <script>
-        function filterEvenNumbers(arr) {
+        function cleanFalsyValues(arr) {
             const output = []
-            for (let i = 1; i < arr.length; i++) {
-                if (arr[i] % 2 === 0) {
+            for (let i = 0; i < arr.length; i++) {
+                // console.log(!!arr[i]);
+                if (!!arr[i]) {
                     output.push(arr[i])
                 }
             }
-            document.write(output)
+            return output;
         }
-        filterEvenNumbers([1, 2, 3, 4, 5, 6])
+        document.write("Bài tập 1: " + cleanFalsyValues([1, 0, "", null, "hello", undefined, NaN, 2, 3]))
     </script>
 </body>
 
