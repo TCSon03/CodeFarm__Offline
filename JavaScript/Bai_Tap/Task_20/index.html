@@ -8,34 +8,31 @@
 </head>
 
 <body>
-    <h1>Task 16: Tính tiền taxi</h1>
+    <h1>Task 20: Viết hàm in ra cây thông noel theo ký tự đã nhập</h1>
     <script>
-        /**
-         * input: Nhap so KM;
-         * output: In so tien cần trả;
-         * logic:   Số km <= 1 giá: 10000đ/km. (giá mở cửa 10.000đ)
-                    Số km > 1 đến <= 30 giá: 8000đ/km.
-                    Số km từ > 30 giá: 7000đ/km.
-                    Nếu số km nhập vào không hợp lệ thì thông báo "Số km không hợp lệ".
-        */
-        let km = parseFloat(prompt("Nhập số KM?"))
-        function taxiBill(km) {
-            if (isNaN(km) || km <= 0) {
-                document.write("Số KM không hợp lệ");
-                return;
+        let a = parseInt(prompt("Nhập số tầng cây thông noel?"));
+        let b = prompt("Nhập ký tự cây thông noel?");
+        function printChristmasTree(n, character) {
+            for (let i = 1; i <= n; i++) {
+                let line = "";
+                for (let j = 0; j < n - i; j++) {
+                    line += " "
+                }
+                // console.log(line);
+                for (let h = 0; h < 2 * i - 1; h++) {
+                    line += character
+                }
+                // console.log(line);
+                console.log(line)
             }
-            if (km <= 1) {
-                document.write("Số tiền cần trả: 10000đ");
-                return;
-            } else if (km < 30) {
-                document.write(`Số KM là ${km} số tiền phải trả là: ${km * 8000}đ`);
-                return;
-            } else {
-                document.write(`Số KM là ${km} số tiền phải trả là: ${km * 7000}đ`);
-                return;
+            let space = ""
+            for (let c = 0; c < n - 1; c++) {
+                space += " "
             }
+            // console.log(space + character);
+            console.log(space + character)
         }
-        taxiBill(km)
+        printChristmasTree(a, b);
     </script>
 </body>
 

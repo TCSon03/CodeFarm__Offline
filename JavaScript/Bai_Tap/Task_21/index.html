@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <h1>Task 21</h1>
+    <h1>Task 21: Bài tập xử lý mảng cấp độ dễ</h1>
     <script>
         // Bài tập 1:
         function cleanFalsyValues(arr) {
@@ -43,7 +43,7 @@
         document.write("<br>")
         document.write("Bài tập 2: d) " + filterEvenNumbers([-2, -1, 0, 1, 2]))
 
-        // Bài tập 3:
+        // // Bài tập 3:
         function filterLongStrings(arr) {
             let output = [];
             for (let i = 0; i < arr.length; i++) {
@@ -62,7 +62,7 @@
         document.write("<br>")
         document.write("Bài tập 3: c) " + filterLongStrings(["hi", "bye", "yes"]))
 
-        // Bài tập 4:
+        // // Bài tập 4:
         function findMinMaxAverage(arr) {
             let max = arr[0];
             let min = arr[0];
@@ -86,11 +86,24 @@
         document.write(findMinMaxAverage([3, 1, 4, 1, 5, 9, 2, 6]))
 
         // Bài tập 5;
-        // function insertNumber(arr, num){
-        //     console.log(arr);
-        //     console.log(num)
-        // }
-        // insertNumber([1, 3, 5, 7, 9], 6);
+        function insertNumber(arr, num) {
+            let filteredArr = arr.filter(item => typeof item === "number" && !isNaN(item));
+            if (typeof num === "number" && !isNaN(num)) {
+                filteredArr.push(num)
+            }
+            filteredArr.sort((a, b) => a - b);
+            return filteredArr
+        }
+        document.write("Bài tập 5: a) " + insertNumber([1, 3, 5, 7, 9], 6))
+        document.write("<br>")
+        document.write("Bài tập 5: b) " + insertNumber([3, "hello", 1, NaN, 4, null], 2))
+        document.write("<br>")
+        document.write("Bài tập 5: c) " + insertNumber([], 5))
+        document.write("<br>")
+        document.write("Bài tập 5: d) " + insertNumber([-1, 10, -5, "abc"], -3))
+        document.write("<br>")
+        document.write("Bài tập 5: e) " + insertNumber([5, 2, 8], NaN))
+
     </script>
 </body>
 
