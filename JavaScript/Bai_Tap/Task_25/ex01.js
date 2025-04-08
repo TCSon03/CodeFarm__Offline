@@ -8,8 +8,13 @@ const fruits = [
   "orange",
   "apple",
   "kiwi",
+  undefined,
+  undefined,
+  null,
+  null,
+  NaN,
+  NaN,
 ];
-document.writeln("Mảng ban đầu: " + fruits + "<br>");
 
 function removeDuplicate(valFruits) {
   if (!Array.isArray(valFruits)) {
@@ -20,7 +25,6 @@ function removeDuplicate(valFruits) {
     if (!accumulator.includes(currentValue)) {
       return [...accumulator, currentValue];
     }
-
     return accumulator;
   }, initialValue);
   return sumWithInitial;
@@ -29,4 +33,10 @@ function removeDuplicate(valFruits) {
 // Output:
 const result = removeDuplicate(fruits);
 
-document.writeln("Mảng sau khi xóa trùng : ", result); 
+document.writeln("Mảng sau khi xóa trùng : ", result);
+console.log("Mảng sau khi xóa trùng : ", result);
+
+// const result = [...new Set(fruits)]
+// console.log(result);
+
+

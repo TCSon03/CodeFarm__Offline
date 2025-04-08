@@ -1,36 +1,62 @@
-// const arrNumber = [1, 2, 3, 4, 5, 5, null, undefined, 6];
-// // console.log(arrNumber);
-// const newArrNumber = [];
-// for (let i = arrNumber.length - 1; i >= 0; i--) {
-//   const item = arrNumber[i];
-//   // console.log(arrNumber[i]);
-//   if (!!arrNumber[i]) {
-//     console.log(arrNumber[i]);
-//     if (!newArrNumber.includes(item)) {
-//       newArrNumber.push(item);
-//     }
+// const fruits = [
+//   "apple",
+//   "banana",
+//   "kiwi",
+//   "kiwi",
+//   "banana",
+//   "orange",
+//   "apple",
+//   "kiwi",
+//   undefined,
+//   undefined,
+//   null,
+//   null,
+//   NaN,
+//   NaN,
+// ];
+
+// function removeDuplicate(arr) {
+//   if (!Array.isArray(arr)) {
+//     return;
 //   }
+//   const initialValue = {};
+//   const sumWithInitial = arr.reduce((accumulator, currentValue) => {
+//     if (!accumulator.includes(currentValue)) {
+//       return {...accumulator, currentValue};
+//     }
+//     return accumulator;
+//   }, initialValue);
+//   return sumWithInitial;
 // }
-// console.log(newArrNumber)
+// const result = removeDuplicate(fruits);
+// console.log(result);
 
-const arrNumber = [1, 2, 3, 4, 5, 5, null, undefined, 6];
+const fruits = [
+  "apple",
+  "banana",
+  "kiwi",
+  "kiwi",
+  "banana",
+  "orange",
+  "apple",
+  "kiwi",
+];
 
-function reverseArr(arr) {
+function countElement(arr) {
   // Xử lý và in ra kết quả
-  const newArr = [];
-  for (let i = arr.length - 1; i >= 0; i--) {
-    const item = arr[i];
-    if (!!item) {
-      if (!newArr.includes(item)) {
-        newArr.push(item);
-      }
+  const newObject = {};
+
+  for (let i = 0; i < arr.length; i++) {
+    const fruit = arr[i];
+    if (newObject[fruit]) {
+      newObject[fruit]++;
+    } else {
+      newObject[fruit] = 1;
     }
   }
-  return newArr;
+  return newObject;
 }
-const result = reverseArr(arrNumber);
-console.log(arrNumber);
-console.log(result);
-document.writeln("Mảng của bạn: " + arrNumber + "<br>");
 
-document.writeln("Mảng của bạn sau khi đảo: " + result + "<br>"); // [6,5,4,3,2,1]
+const result = countElement(fruits);
+
+console.log(result); // { apple: 2, banana: 2, kiwi: 3, orange: 1 }
