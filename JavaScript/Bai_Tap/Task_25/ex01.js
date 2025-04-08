@@ -1,36 +1,32 @@
-// const arrNumber = [1, 2, 3, 4, 5, 5, null, undefined, 6];
-// // console.log(arrNumber);
-// const newArrNumber = [];
-// for (let i = arrNumber.length - 1; i >= 0; i--) {
-//   const item = arrNumber[i];
-//   // console.log(arrNumber[i]);
-//   if (!!arrNumber[i]) {
-//     console.log(arrNumber[i]);
-//     if (!newArrNumber.includes(item)) {
-//       newArrNumber.push(item);
-//     }
-//   }
-// }
-// console.log(newArrNumber)
+// Input:
+const fruits = [
+  "apple",
+  "banana",
+  "kiwi",
+  "kiwi",
+  "banana",
+  "orange",
+  "apple",
+  "kiwi",
+];
+document.writeln("Mảng ban đầu: " + fruits + "<br>");
 
-const arrNumber = [1, 2, 3, 4, 5, 5, null, undefined, 6];
-
-function reverseArr(arr) {
-  // Xử lý và in ra kết quả
-  const newArr = [];
-  for (let i = arr.length - 1; i >= 0; i--) {
-    const item = arr[i];
-    if (!!item) {
-      if (!newArr.includes(item)) {
-        newArr.push(item);
-      }
-    }
+function removeDuplicate(valFruits) {
+  if (!Array.isArray(valFruits)) {
+    return;
   }
-  return newArr;
-}
-const result = reverseArr(arrNumber);
-console.log(arrNumber);
-console.log(result);
-document.writeln("Mảng của bạn: " + arrNumber + "<br>");
+  const initialValue = [];
+  const sumWithInitial = valFruits.reduce((accumulator, currentValue) => {
+    if (!accumulator.includes(currentValue)) {
+      return [...accumulator, currentValue];
+    }
 
-document.writeln("Mảng của bạn sau khi đảo: " + result + "<br>"); // [6,5,4,3,2,1]
+    return accumulator;
+  }, initialValue);
+  return sumWithInitial;
+}
+
+// Output:
+const result = removeDuplicate(fruits);
+
+document.writeln("Mảng sau khi xóa trùng : ", result); 

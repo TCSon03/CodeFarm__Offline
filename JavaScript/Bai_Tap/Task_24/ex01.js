@@ -16,4 +16,4 @@ function sortArrNumber(arr) {
 }
 
 const result = sortArrNumber(number);
-document.writeln("Mảng sau khi sắp xếp: " + result); // [1,2,2,4,5,6,7,8]
+document.writeln("Mảng sau khi sắp xếp: " + result);
