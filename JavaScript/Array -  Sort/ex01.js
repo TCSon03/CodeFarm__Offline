@@ -12,14 +12,10 @@ const arr3 = [
 ];
 
 const arr4 = arr3.sort((a, b) => {
-    console.log("this array : ", a);
-
+  console.log("this array : ", a);
   return a.price - b.price;
 });
 console.log(arr4);
 
 const arr5 = arr3.sort((a, b) => b.price - a.price);
 console.log(arr5);
-
-
-
