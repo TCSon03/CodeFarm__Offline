@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 1. Concat() : nối mảng hiện tại với mảng khác và trả vệ mảng mới
+        const arr1 = [1, 2, 3, 4, 5];
+        const arr2 = [7, 5, 6, 8, 9];
+        const arr3 = [32, 66];
+        const newArr = arr2.concat(arr3, arr1);
+        console.log(newArr);
+
+        // 2. Push() : thêm một hoặc nhiều phần tử vào cuối mảng gốc;
+        const arr4 = [1, 2, 3];
+        arr4.push(99, 0, 5, 66);
+        console.log(arr4);
+
+        // 3. Unshift() : Thêm một hoặc nhiều phần tử vào đầu mảng gốc;
+        const arr5 = [7, 5, 1, 6];
+        arr5.unshift(1, 4, 2);
+        console.log(arr5)
+
+        // 4. pop() : Xóa phần tử cuối cùng của mảng và trả về giá trị bị loại bỏ
+        const arr6 = [3, 0, 0, 8];
+        const removeElement = arr6.pop();
+        console.log(arr6)
+        console.log(removeElement)
+
+        // 5. shift() : Xóa phần tử đầu tiên của mảng và trả về giá trị loại bỏ;
+        const arr7 = [2, 0, 0, 3];
+        const removeElement2 = arr7.shift();
+        console.log(arr7);
+        console.log(removeElement2);
+
+        // 6. slice(startIndex, endIndex) : Tạo một bản sao của mảng => lưu sang 1 vùng nhớ mới. Cắt chuỗi gốc, lấy từ StartIndex đến sát endIndex(endIndex -1) chuỗi gốc(không bao gồm endIndex) Bỏ trống sẽ hiểu sao chép lấy toàn bộ mảng gốc sang mảng mới
+
+        let arr8 = [1, 2, 3, 4, 5, 6, 7, 8];
+        let sliceArr = arr8.slice(0, 2);
+        console.log(arr8);
+        console.log(sliceArr);
+
+        // 7. includes() : Kiểm tra xem một mảng có chứa một giá trị cụ thể hay không. Trả về true nếu có và false nếu không.
+
+        let arr9 = [1, 2, 3, 4, 5, "son"];
+        let isPresent = arr9.includes("sons");
+        console.log(isPresent);
+
+        // 8. splice() là một công cụ mạnh mẽ cho việc thay đổi cấu trúc của mảng
+
+        /**
+         * - array.splice(start, deleteCount, item1, item2, ...)
+         * - start: chỉ định vị trí bắt đầu thay đổi mảng. Nếu là một số âm, nó sẽ được tính từ cuối mảng.
+         * - deleteCount: Số nguyên chỉ định số lượng phần tử sẽ bị loại bỏ từ mảng, bắt đầu từ vị trí start,(Nếu deleteCount là 0, không có phần tử nào bị loại bỏ).
+         * - item1, item2,...: Các phần tử mới sẽ được thêm vào mảng từ vị trí start.
+        */
+
+        let arr10 = [1,2,3,4,5];
+        // arr10.splice(2,2)
+        // arr10.splice(-2,2)
+        arr10.splice(1,2,5,4,3,)
+        console.log(arr10);
+
+        
+    </script>
+</body>
+
+</html>

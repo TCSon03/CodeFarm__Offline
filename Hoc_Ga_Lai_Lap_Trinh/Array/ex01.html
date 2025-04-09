@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // Duyet mang dung for thuong
+        let arr7 = [3, 5, 2, 7, 43, 7]
+        // console.log(arr7)
+        for (let i = 0; i < arr7.length; i++) {
+            // console.log(i);
+            // console.log(arr7[i])
+            arr7[i] = arr7[i] * 2
+        }
+        console.log(arr7)
+
+        // Duyet mang dung for...of: chỉ có thể xem, không thể sửa giá trị của mảng
+        let arr8 = [3, 5, 2, 7, 43, 7]
+        console.log(arr8);
+        let count = 0
+        for (let i of arr8) {
+            if (i % 2 === 0) {
+                console.log(i)
+                count++
+            }
+        }
+        console.log(`So luong phan tu chia het cho 2: ${count}`);
+        
+    </script>
+</body>
+
+</html>
