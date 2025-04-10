@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Bài toán khi không dùng reduce() -->
+    <script>
+        let M1 = [1, 20, 3];
+        // Thực hiện tính tổng các phần tủ trong mảng
+        // 1. Gía trị khởi tạo ban đầu
+        // let sum = 0;
+        // for (let i = 0; i < M1.length; i++) {
+        //     // console.log(M1[i]);
+        //     sum += M1[i]
+        // }
+        // console.log(sum);
+
+        let sum = M1.reduce((acc, cur, curIndex, array) => {
+            // console.log(array);
+            return acc + cur
+        }, 0)
+        console.log(sum);
+    </script>
+</body>
+
+</html>
