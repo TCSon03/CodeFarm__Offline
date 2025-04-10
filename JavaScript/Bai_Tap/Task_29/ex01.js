@@ -1,63 +1,35 @@
-// const fruits = [
-//   "apple",
-//   "banana",
-//   "kiwi",
-//   "kiwi",
-//   "banana",
-//   "orange",
-//   "apple",
-//   "kiwi",
-//   undefined,
-//   undefined,
-//   null,
-//   null,
-//   NaN,
-//   NaN,
-// ];
+// Input
+const products = [
+  { id: 1, name: "Laptop", price: 1000 },
+  { id: 2, name: "Mouse", price: 50 },
+  { id: 3, name: "Keyboard", price: 150 },
+  { id: 4, name: "Monitor", price: 300 },
+  { id: 5, name: "USB Cable", price: 25 },
+  { id: 6, name: "Webcam", price: 120 },
+  { id: 7, name: "Desk Lamp", price: 80 },
+  { id: 8, name: "Headphones", price: 200 },
+  { id: 9, name: "Speaker", price: 180 },
+  { id: 10, name: "Chair", price: 250 },
+];
 
-function removeDuplicate(arr) {
-  if (!Array.isArray(arr)) {
-    return;
-  }
-  const initialValue = {};
-  const sumWithInitial = arr.reduce((accumulator, currentValue) => {
-    console.log("accumulator", accumulator);
+function filteredProductNames(array, price) {
+  // console.log(array);
+  // console.log(price);
+  let productName = [];
+  for (let i = 0; i < array.length; i++) {
+    // console.log(array[i]);
+    // console.log(array[i].price);
+    // console.log(price);
 
-    if (!accumulator.includes(currentValue)) {
-      return { ...accumulator, currentValue };
+    if (array[i].price > price) {
+      console.log(array[i]);
+      productName.push(array[i].name);
     }
-    return accumulator;
-  }, initialValue);
-  return sumWithInitial;
+  }
+  // console.log(productName);
+  return productName;
 }
-const result = removeDuplicate(fruits);
-console.log(result);
-
-// const fruits = [
-//   "apple",
-//   "banana",
-//   "kiwi",
-//   "kiwi",
-//   "banana",
-//   "orange",
-//   "apple",
-//   "kiwi",
-// ];
-
-// function countElement(arr) {
-//   // Xử lý và in ra kết quả
-//   const newObject = {};
-
-//   for (let i = 0; i < arr.length; i++) {
-//     const fruit = arr[i];
-//     if (newObject[fruit]) {
-//       newObject[fruit]++;
-//     } else {
-//       newObject[fruit] = 1;
-//     }
-//   }
-//   return newObject;
-// }
-
-// const result = countElement(fruits);
-// console.log(result); // { apple: 2, banana: 2, kiwi: 3, orange: 1 }
+// filteredProductNames(products, 200);
+// Output
+const result = filteredProductNames(products, 200);
+console.log(result); // [ 'Laptop', 'Monitor', ''Headphones, 'Chair' ]
