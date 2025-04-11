@@ -10,24 +10,37 @@
 <body>
     <!-- Viết chương trình tạo 1 mảng 1 chiều gồm các pt là số nguyên có n pt, n do người dùng nhập từ bàn phím -->
     <script>
-        let M = []
+        // let M = []
+        // let n;
+        // while (true) {
+        //     n = Number(prompt(`Mời nhập vào số phần tử của mảng Lưu ý: n phải là số nguyên > 0`));
+        //     if (Number.isInteger(n) && n > 0) {
+        //         break;
+        //     }
+
+        // }
+        // console.log("Số phần tử của mảng là: " + n);
+        // for (let i = 0; i < n; i++) {
+        //     console.log(i);
+        //     let input = Number(prompt(`Mời nhập vào phần tử thứ: ${i + 1}`))
+        //     M.push(input)
+        // }
+        // console.log(M);
+
+        let M = [];
         let n;
         while (true) {
-            n = Number(prompt(`Mời nhập vào số phần tử của mảng Lưu ý: n phải là số nguyên > 0`));
+            n = Number(prompt("Nhap so phan tu cua mang: "));
             if (Number.isInteger(n) && n > 0) {
-                break;
+                break
             }
-
         }
-        console.log("Số phần tử của mảng là: " + n);
+        console.log(`So phan tu trong mang la: ${n}`);
         for (let i = 0; i < n; i++) {
-            console.log(i);
-            let input = Number(prompt(`Mời nhập vào phần tử thứ: ${i + 1}`))
+            let input = Number(prompt(`Nhap phan tu thu: ${i + 1}`))
             M.push(input)
         }
         console.log(M);
-        
-
     </script>
 </body>
 

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- 1. Viết chương trình tạo 1 mảng 1 chiều gồm các phần tử là số nguyên, có n phần tử ngẫu nhiên, n do người dùng nhập từ bàn phím 
+2. Xuất các giá trị trong mảng
+3. Đảo ngược mảng, và xuất mảng sau khi đảo ngược
+4. Sắp xếp mảng tăng dần
+5. Tính tổng các phần tử trong mảng
+6. Cho người dùng nhập 1 số bất kỳ, kiểm tra số đó có tồn tại trong mảng hay không, nếu có xuất ra vị trí index của số đó trong mảng -->
+
+    <script>
+        let array = [];
+        let n;
+        while (true) {
+            n = Number(prompt("Nhap vao so luong phan tu: "));
+            if (Number.isInteger(n) && n > 0) {
+                break
+            }
+        }
+        console.log(`So luon phan tu trong mang cua ban la: ${n}`);
+        for(let i = 0; i < n; i++){
+            let input = Number(prompt(`Nhap phan tu thu: ${i + 1}`));
+            array.push(input)
+        }
+        console.log(`Mang cua ban: ` + array);
+        
+        
+    </script>
+</body>
+
+</html>
