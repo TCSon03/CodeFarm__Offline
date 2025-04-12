@@ -7,18 +7,22 @@ const users = [
 ];
 
 function groupBy(arr, key) {
-  return arr.reduce((acc, cur) => {
-    // console.log(cur);
-    const keyValue = cur[key];
-    // console.log(keyValue);
-    if (!acc[keyValue]) {
-      acc[keyValue] = [];
+  // Xử lý và in ra kết quả
+  return arr.reduce((acc, cur, index, array) => {
+    let age = cur[key];
+    console.log(age);
+    if(!acc[age]){
+      acc[age] = [];
+      acc[age].push(cur)
     }
-    acc[keyValue].push(cur);
-    // console.log(arr);
-    return acc;
+    else{
+      acc[age].push(cur)
+    }
+    return acc
   }, {});
 }
-console.log(groupBy(users, "age"));
 
-// console.log(groupBy(users, "age"));
+// Output:
+const result1 = groupBy(users, "age");
+
+console.log(result1);
