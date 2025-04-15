@@ -6,23 +6,38 @@ const users = [
   { fullname: "Nguyen Van E", age: 32, address: "LangSon" },
 ];
 
+// function groupBy(arr, key) {
+//   // Xử lý và in ra kết quả
+//   return arr.reduce((acc, cur, index, array) => {
+//     let age = cur[key];
+//     console.log(age);
+//     if(!acc[age]){
+//       acc[age] = [];
+//       acc[age].push(cur)
+//     }
+//     else{
+//       acc[age].push(cur)
+//     }
+//     return acc
+//   }, {});
+// }
+
+// // Output:
+// const result1 = groupBy(users, "age");
+
+// console.log(result1);
+
 function groupBy(arr, key) {
-  // Xử lý và in ra kết quả
-  return arr.reduce((acc, cur, index, array) => {
-    let age = cur[key];
-    console.log(age);
-    if(!acc[age]){
-      acc[age] = [];
-      acc[age].push(cur)
+  return arr.reduce((acc, cur) => {
+    if(!acc[cur[key]]){
+      acc[cur[key]] = [];
+      acc[cur[key]].push(cur[key])
     }
     else{
-      acc[age].push(cur)
+      acc[cur[key]].push(cur[key])
     }
     return acc
-  }, {});
+  },{})
 }
-
-// Output:
-const result1 = groupBy(users, "age");
-
-console.log(result1);
+const result = groupBy(users, "address");
+console.log(result);

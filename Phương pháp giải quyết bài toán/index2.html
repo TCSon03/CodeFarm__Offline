@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function findMostFrequent(arr) {
+            return arr.reduce((acc, cur) => {
+                if (!acc[cur]) {
+                    acc[cur] = 1;
+                }
+                else {
+                    acc[cur]++;
+                }
+                return acc
+            }, {})
+        }
+
+        function max(obj) {
+            let max = 0;
+            for (let index in obj) {
+                if (max < Object.values(obj)[index]) {
+                    max = Object.values(obj)[index]
+                }
+            }
+            return max
+        }
+        const arr = [1, 2, 2, 3, 3, 3, 4, 4, 4];
+        console.log(max(findMostFrequent(arr)));
+
+
+        // const result = findMostFrequent(arr);
+        // console.log(result);
+    </script>
+</body>
+
+</html>

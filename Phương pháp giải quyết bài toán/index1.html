@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function encodeRLE(str) {
+            let count = 1;
+            let result = ''
+            for (let i = 0; i < str.length; i++) {
+                // console.log(str[i]);
+                if (str[i] === str[i + 1]) {
+                    count++;
+                }
+                else {
+                    result += count + str[i];
+                    count = 1;
+                }
+            }
+            return result
+        }
+        let str = "aaabbcccc"
+        const result = encodeRLE(str);
+        console.log(result);
+
+
+        // let str = "aaabbccccaaa";
+
+        // function encodeRLE(str) {
+        //     let count = 1;
+        //     let result = "";
+
+        //     for (let i = 1; i < str.length; i++) {
+        //         if (str[i] === str[i - 1]) {
+        //             count++;
+        //         } else {
+        //             result += count + str[i - 1];
+        //             count = 1;
+        //         }
+        //     }
+
+        //     result += count + str[str.length - 1];
+
+        //     return result;
+        // }
+        // console.log(encodeRLE(str));
+
+    </script>
+</body>
+
+</html>
