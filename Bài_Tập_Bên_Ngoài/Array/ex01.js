@@ -89,8 +89,8 @@
 // console.log(doubled);
 
 // 5:
-let numbers = [2, 5,4, 8, 11, 14, 17, 20, 6];
-let count = 0;
+// let numbers = [2, 5,4, 8, 11, 14, 17, 20, 6];
+// let count = 0;
 
 // for(let i = 0; i < numbers.length; i++){
 //     if(numbers[i] % 2 === 0){
@@ -110,4 +110,6 @@ let count = 0;
 //     count++;
 //   }
 // });
-console.log(count);
+// console.log(count);
+
+for (var i = 0; i < 3; i++) { setTimeout(() => { console.log(i); }, 100); }
