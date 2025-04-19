@@ -1,0 +1,65 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function hienThiGio() {
+            const now = new Date();
+            const gio = String(now.getHours()).padStart(2, '0')
+            const phut = String(now.getMinutes()).padStart(2, '0')
+            const giay = String(now.getSeconds()).padStart(2, '0')
+            const thoiGian = `${gio}:${phut}:${giay}`
+            console.log("Bay gio la: ", thoiGian);
+            
+        }
+        setInterval(hienThiGio,1000)
+    </script>
+</body>
+
+</html> -->
+
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Đồng hồ kỹ thuật số</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            color: #00FFAA;
+            text-align: center;
+            font-size: 50px;
+            margin-top: 20%;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="clock"></div>
+
+    <script>
+        function updateClock() {
+            const now = new Date();
+            const hours = String(now.getHours()).padStart(2, '0');
+            const minutes = String(now.getMinutes()).padStart(2, '0');
+            const seconds = String(now.getSeconds()).padStart(2, '0');
+
+            const timeString = `${hours}:${minutes}:${seconds}`;
+            document.getElementById('clock').textContent = timeString;
+        }
+
+        setInterval(updateClock, 1000); // cập nhật mỗi giây
+        updateClock(); // gọi ngay lần đầu
+    </script>
+</body>
+
+</html>

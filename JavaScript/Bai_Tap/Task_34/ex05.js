@@ -23,6 +23,5 @@ function sortedUsers(arrayUser) {
     return lastStr.localeCompare(firtStr);
   });
 }
-// Test
 console.log(sortedUsers(users));
 // console.log(Array.prototype.pop);

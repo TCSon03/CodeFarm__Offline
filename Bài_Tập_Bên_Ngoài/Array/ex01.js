@@ -105,11 +105,10 @@
 //   }
 // }
 
-// numbers.forEach((number, index, array) => {
-//   if (number % 2 === 0) {
-//     count++;
-//   }
-// });
-// console.log(count);
+numbers.forEach((number, index, array) => {
+  if (number % 2 === 0) {
+    count++;
+  }
+});
+console.log(count);
 
-for (var i = 0; i < 3; i++) { setTimeout(() => { console.log(i); }, 100); }
