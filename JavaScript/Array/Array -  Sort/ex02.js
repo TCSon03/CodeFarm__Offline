@@ -16,6 +16,6 @@ function sortUser(users) {
       return -1;
     }
   });
-  return user
+  return userCopy
 }
 console.log(sortUser(users));
