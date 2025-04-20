@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM - W3C</title>
+</head>
+
+<body>
+    <h1>Tìm hiểu về DOM</h1>
+    <p id="demo">xin chao</p>
+    <script>
+        /**
+         * Document là đối tượng đại diện cho toàn bộ trang web(tài liệu HTML. Là một phần của DOM cho phép js tương tác và thay đổi nội dung, cấu trúc và kiểu hiển thị của trang web)
+         * getElementById: là hàm dùng để tìm phần tử HTML có id="demo"
+         * innerHTML là một thuộc tính của một phần tử HTML, nó đại diện cho nội dung HTML bên trong phần tử đó.
+        */
+        document.getElementById('demo').innerHTML = "Hello World"
+    </script>
+</body>
+
+</html>

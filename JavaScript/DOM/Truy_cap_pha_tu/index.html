@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tìm hiểu về DOM</title>
+</head>
+
+<body>
+    <h1>Truy cập phần tử HTML </h1>
+
+    <div id="header">Tiêu đề trang</div>
+
+    <ul class="danh-sach">
+        <li class="muc">Mục 1</li>
+        <li class="muc">Mục 2</li>
+        <li class="muc dac-biet">Mục 3</li>
+    </ul>
+
+    <img src="https://gockienthuc.edu.vn/wp-content/uploads/2024/07/hinh-anh-trai-6-mui-khoe-body-dep-luc-luong-nhin-mo-e-me_6690f232185b8.webp"
+        name="anh" alt="Hình ảnh 1">
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZwQ5nd_krVwOMEoGZ676iAHy4VzRYTdD54A&s"
+        class="anh-phu" alt="Hình ảnh 2">
+
+    <form name="dang-ky">
+        <input type="text" name="ten">
+        <input type="checkbox" name="gioi-tinh" value="nam">
+        <button class="nut-bam">Gửi</button>
+    </form>
+    <script>
+        /**
+         * 1. Truy cập bằng id
+        */
+        const header = document.getElementById('header');
+        console.log(header.textContent);
+
+        header.textContent = "Xin chao son dep trai"
+        header.style.background = "#dac9d9"
+        console.log(header.textContent);
+
+        /**
+         * 2. Truy cập bằng class
+        */
+        const mucItems = document.getElementsByClassName('muc');
+        console.log(mucItems.length);
+
+        for (let i = 0; i < mucItems.length; i++) {
+            console.log(mucItems[0]);
+            mucItems[i].style.color = 'green'
+        }
+
+        /**
+         * 3. Truy cập bằng tag name
+        */
+
+        const liElement = document.getElementsByTagName('li');
+        console.log(liElement[2].textContent);
+        
+
+    </script>
+</body>
+
+</html>
