@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM - DeepSeek</title>
+</head>
+<body>
+    <h1 id="heading">Xin chào!</h1>
+    <button onclick="changeText()">Click me!</button>
+    <script>
+        function changeText(){
+            const heading = document.getElementById('heading')
+            heading.textContent = "Bạn đã click";
+            heading.style.color = "blue"
+        }
+    </script>
+</body>
+</html>

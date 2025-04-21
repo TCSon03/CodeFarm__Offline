@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Bài tập 1 trong bài kiểm tra điểm 0</h1>
+    <script>
+        const listCharacters =
+            "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+        function generatorId(length, prefix) {
+            // Xử lý và return về kết quả
+            let id = ''
+            for (let i = 0; i < length; i++) {
+                const ramDom = Math.floor(Math.random() * listCharacters.length);
+                // console.log(ramDom);
+                // console.log(listCharacters[ramDom]);
+
+                id += listCharacters[ramDom]
+            }
+            return prefix + id
+        }
+        console.log("Bài tập 1:", generatorId(8, "user"));
+
+
+        // Bài tập tương tự
+        let number = '0123456789';
+        function generateOrderId(prefix, length) {
+            let result = '';
+            for (let i = 0; i < length; i++) {
+                // let random = Math.floor(Math.random() * number.length)
+                // console.log(random);
+                // result += random
+                let random = Math.random() * number.length;
+                let ran = Math.floor(random)
+
+                result += number[ran]
+
+            }
+            return prefix + result
+        }
+        console.log("Bài tập 2: " + generateOrderId('ORD', 3));
+
+        const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        const numbers = "0123456789";
+        function generateProductCode(prefix, charLength, numberLength){
+            let string = '';
+            let number = '';
+            for(let i = 0; i < charLength; i++){
+                let randomString = Math.floor(Math.random() * letters.length)
+                string += letters[randomString]
+            }
+            for(let j = 0; j < numberLength; j++){
+                let randomNumber = Math.floor(Math.random() * numbers.length)
+                
+                number += numbers[randomNumber]
+            }
+            return prefix + string + number
+        }
+        console.log(generateProductCode("SP", 3, 4)); 
+    </script>
+</body>
+
+</html>
