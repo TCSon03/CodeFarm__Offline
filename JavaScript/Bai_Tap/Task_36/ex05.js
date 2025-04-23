@@ -14,6 +14,10 @@ titleTable.innerHTML = `
       </tr>
   </thead>
 `
+titleTable.style.border = "2px solid blue";
+titleTable.style.background = "#ccc";
+
+
 const bodyTable = document.createElement('tbody')
 titleTable.appendChild(bodyTable)
 students.forEach((value) => {
@@ -25,4 +29,4 @@ students.forEach((value) => {
           <td>${value.city}</td>
   `
   bodyTable.appendChild(log)
-})
+  })
