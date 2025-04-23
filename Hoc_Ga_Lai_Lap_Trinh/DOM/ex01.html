@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="heading_title">Xin chao mot ngay moi</h1>
+    <ul>
+        <li class="list">LIST 1</li>
+        <li class="list">LIST 2</li>
+        <li class="list">LIST 3</li>
+    </ul>
+    <script>
+        let li_item = document.getElementsByTagName('li')
+        console.log(li_item);
+        let liClass = document.getElementsByClassName('list')
+        console.log(liClass);
+
+        let title = document.querySelector('#heading_title')
+        console.log(title);
+        title.innerHTML = "New Day"
+        let firstListItem = document.querySelector('.list');
+        // console.log(firstListItem);
+        firstListItem.innerHTML = "xin chao list"
+
+        let liQuerry = document.querySelectorAll('.list')
+        for (let i = 0; i < liQuerry.length; i++) {
+            console.log(liQuerry[i]);
+            if (liQuerry[i].innerHTML === ("List 2").toUpperCase()) {
+                liQuerry[i].innerHTML = "thay doi"
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách công việc (To-do List)</title>
+</head>
+
+<body>
+    <table id="productTable"></table>
+    <script>
+        const products = [
+            { id: 101, name: "Chuột Logitech", price: 250000 },
+            { id: 102, name: "Bàn phím cơ", price: 700000 },
+            { id: 103, name: "Tai nghe Gaming", price: 550000 },
+        ];
+
+        const table = document.getElementById('productTable');
+        table.innerHTML =
+            `
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>name</th>
+                    <th>price</th>
+                </tr>
+            </thead>
+        `
+        const body = document.createElement('tbody');
+        table.appendChild(body)
+        products.forEach((element) => {
+            const value = document.createElement('tr')
+            value.innerHTML =
+                `
+                    <td>${element.id}</td>
+                    <td>${element.name}</td>
+                    <td>${element.price.toLocaleString('vi-VN')}</td>
+            `
+            body.appendChild(value)
+        })
+    </script>
+</body>
+
+</html>

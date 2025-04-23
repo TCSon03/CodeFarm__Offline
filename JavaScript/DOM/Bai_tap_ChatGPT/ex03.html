@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lọc người dùng theo tên đăng nhập</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 40px;
+        }
+
+        input {
+            padding: 8px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            width: 300px;
+        }
+
+        table {
+            border-collapse: collapse;
+            width: 500px;
+        }
+
+        th,
+        td {
+            border: 1px solid #ccc;
+            padding: 10px;
+            text-align: center;
+        }
+
+        th {
+            background-color: #f0f0f0;
+        }
+
+        td {
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="search" placeholder="Tìm theo tên đăng nhập..." />
+    <table id="userTable"></table>
+
+    <script>
+        const users = [
+            { username: "nguyenvana", email: "a@gmail.com", age: 20 },
+            { username: "tranthib", email: "b@yahoo.com", age: 22 },
+            { username: "lethic", email: "c@outlook.com", age: 19 },
+        ];
+
+        const table = document.getElementById('userTable');
+
+        // Tạo phần thead
+        table.innerHTML = `
+      <thead>
+        <tr>
+          <th>Tên đăng nhập</th>
+          <th>Email</th>
+          <th>Tuổi</th>
+        </tr>
+      </thead>
+    `;
+
+        const bodyTable = document.createElement('tbody');
+        table.appendChild(bodyTable);
+
+        // Hàm render bảng
+        function renderTable(data) {
+            bodyTable.innerHTML = "";
+
+            if (data.length === 0) {
+                bodyTable.innerHTML = `<tr><td colspan="3">Không tìm thấy kết quả</td></tr>`;
+                return;
+            }
+
+            data.forEach(user => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+          <td>${user.username}</td>
+          <td>${user.email}</td>
+          <td>${user.age}</td>
+        `;
+                bodyTable.appendChild(tr);
+            });
+        }
+
+        // Hiển thị tất cả lúc đầu
+        renderTable(users);
+
+        // Sự kiện tìm kiếm
+        const searchInput = document.getElementById('search');
+        searchInput.addEventListener("input", function () {
+            const keyword = searchInput.value.toLowerCase();
+            const filteredUsers = users.filter(user =>
+                user.email.toLowerCase().includes(keyword)
+            );
+            renderTable(filteredUsers);
+        });
+    </script>
+</body>
+
+</html>

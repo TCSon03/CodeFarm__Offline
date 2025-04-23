@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Sự kiện trong DOM</h1>
+    <!-- <button id="btn">Bấm vào tôi</button> -->
+    <table id="userTable" border="1"></table>
+    <input type="text" id="search" placeholder="Nhập tên...">
+    <p id="result"></p>
+    <script>
+
+        // Cách 1
+        // const btn = document.getElementById('btn');
+
+        // btn.addEventListener("click", function(){
+        //     alert("Bạn đã click")
+        // })
+
+        // Cách 2: Viết gon bằng hàm tên
+
+        // function showAlert(){
+        //     alert('xin chao')
+        // }
+        // document.getElementById('btn').addEventListener("click", showAlert)
+
+        // Ví dụ:
+
+        // const searchInput = document.getElementById("search")
+        // const result = document.getElementById("result")
+
+        // searchInput.addEventListener("input", function () {
+        //     result.textContent = "Bạn đang gõ: " + searchInput.value
+        // })
+        const users = [
+            { username: "nguyenvana", email: "a@gmail.com", age: 20 },
+            { username: "tranthib", email: "b@yahoo.com", age: 22 },
+            { username: "lethic", email: "c@outlook.com", age: 19 },
+        ];
+
+        // const table = document.getElementById('userTable')
+        // table.innerHTML =
+        //     `<thead>
+        //         <tr>
+        //             <th>Tên đăng nhập</th>
+        //             <th>Email</th>
+        //             <th>Tuổi</th>
+        //         </tr>
+        //     </thead>`
+        // const bodyTable = document.createElement('tbody')
+        // table.appendChild(bodyTable)
+
+        // users.forEach((value) => {
+        //     const trBody = document.createElement('tr')
+        //     trBody.innerHTML = `
+        //         <td>${value.username}</td>
+        //             <td>${value.email}</td>
+        //             <td>${value.age}</td>
+        //     `
+        //     bodyTable.appendChild(trBody)
+        // })
+
+        const searchInput = document.getElementById('search')
+        const result = document.getElementById('result')
+
+        // searchInput.addEventListener("input", function(){
+        //     const keyword = searchInput.value;
+        //     const filter = users.filter(user => {
+        //         user.username.includes(keyword)
+        //     })
+        // })
+        searchInput.addEventListener("input", function () {
+            const keyword = searchInput.value.toLowerCase(); // lấy từ khóa và chuyển về chữ thường
+            const filteredUsers = users.filter(user =>
+                user.username.toLowerCase().includes(keyword)
+            );
+
+            // Xóa nội dung cũ trong tbody
+            bodyTable.innerHTML = "";
+
+            // Hiển thị danh sách đã lọc
+            filteredUsers.forEach((value) => {
+                const trBody = document.createElement('tr');
+                trBody.innerHTML = `
+            <td>${value.username}</td>
+            <td>${value.email}</td>
+            <td>${value.age}</td>
+        `;
+                bodyTable.appendChild(trBody);
+            });
+
+            // Nếu không tìm thấy kết quả
+            if (filteredUsers.length === 0) {
+                bodyTable.innerHTML = `<tr><td colspan="3">Không tìm thấy kết quả</td></tr>`;
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>

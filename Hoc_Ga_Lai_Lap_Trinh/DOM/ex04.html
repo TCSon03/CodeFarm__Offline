@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="heading_title">Chuỗi bài học về DOM: getAttribute và setAttribute</h1>
+
+    <ul>
+        <li class="list"><a
+                href="http://youtube.com/watch?v=yRVy-gKPSZo&list=PLPt6-BtUI22pYwpfmkP4EuJkf6GRe63KU&index=113">Home_page</a>
+        </li>
+        <li class="list" id="list_about">About me</li>
+        <li class="list">Contact me</li>
+
+        <a href=http://youtube.com/watch?v=yRVy-gKPSZo&list=PLPt6-BtUI22pYwpfmkP4EuJkf6GRe63KU&index=113">Home_page
+            1</a>
+        <a href=http://youtube.com/watch?v=yRVy-gKPSZo&list=PLPt6-BtUI22pYwpfmkP4EuJkf6GRe63KU&index=113">Home_page
+            2</a>
+    </ul>
+    <form action="">
+        <input type="checkbox" name="agree" id="agree">Đồng ý thỏa thuận bảo mật?
+    </form>
+
+    <script>
+        const item1 = document.querySelectorAll('ul a')
+        console.log(item1);
+        item1.forEach((element) => {
+            if (element.hasAttribute("href")) {
+                console.log(element.hasAttribute("href"));
+                
+                element.removeAttribute('href')
+                console.log(element.hasAttribute("href"));
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        /**
+         * B1: lấy một phần tử (products) trong DOM ra (để đưa các phần tử con vào)
+         * B2: Khởi tạo content (string) từ dât cho trước
+         * B3: product.innerHTML = content
+        */
+        const data = [
+            { id: 1, name: "iphone 16 pro max", price: 2000 },
+            { id: 2, name: "Xiaomi red mi note 12", price: 800 },
+            { id: 3, name: "Samsung S22 Ultra", price: 1400 },
+        ];
+        function render(data) {
+            const maxPrice = Math.max(...data.map(item => item.price));
+            const minPrice = Math.min(...data.map(item => item.price));
+
+            const ulElement = document.createElement('ul');
+            document.body.appendChild(ulElement);
+            data.forEach((value, index, array) => {
+                const liElement = document.createElement('li');
+                // liElement.innerHTML = `${value.name}${value.price}`
+                liElement.innerHTML = `
+                    <div style = "color: ${maxPrice === value.price ? "red" : minPrice === value.price ? "blue" : "black"
+                    }">${value.name}${value.price}</div>
+                `
+                ulElement.appendChild(liElement)
+            });
+        }
+        render(data)
+
+    </script>
+</body>
+
+</html>
