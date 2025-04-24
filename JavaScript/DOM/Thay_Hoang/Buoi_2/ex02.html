@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        <h2>Hello</h2>
+    </div>
+
+
+    <!-- tạo ra một mảng sản phẩm bổ sung thuộc tính slug -->
+    <!-- Bọc thẻ h2 của sản phẩm trong thẻ a -->
+    <!-- bổ sung href cho thẻ a với slug -->
+
+    <div class="products"></div>
+    <a href="test">test</a>
+    <!-- <script>
+        const data = [{
+                id: 1,
+                name: "Iphone 16 pro max",
+                price: 2000
+            },
+            {
+                id: 2,
+                name: "Xiaomi red mi note 12",
+                price: 800
+            },
+            {
+                id: 3,
+                name: "Macbook air m3 2256GB",
+                price: 2000
+            },
+            {
+                id: 4,
+                name: "Samsung S22 Ultra",
+                price: 1400
+            },
+        ];
+        const products = document.getElementsByClassName("products")[0];
+
+        let maxPrice = data[0].price;
+        for (let i = 0; i < data.length; i++) {
+            if (data[i].price > maxPrice) {
+                maxPrice = data[i].price;
+            }
+        }
+        data = data.map((item) => {
+            let slug = item.name.toLocaleLowerCase().replaceAll(" ", "-")
+            slug += "-" + item.id
+            console.log(slug);
+
+        })
+        console.log(data);
+        
+        data.forEach((item) => {
+            let liElement = document.createElement("li");
+            liElement.innerHTML = `
+                <h2>${item.name}</h2>
+                <p>${item.price}</p>
+            `;
+            if (item.price === maxPrice) {
+                liElement.style.color = "red";
+            }
+            products.appendChild(liElement);
+        });
+
+        // const newData = data.map((item) => ({
+        //     ...item, slug:`${item.name.toLocaleLowerCase().replaceAll()}`
+        // }))
+    </script> -->
+
+    <script>
+        let data = [
+            { id: 1, name: "Iphone 16 pro max", price: 2000 },
+            { id: 2, name: "Xiaomi red mi note 12", price: 800 },
+            { id: 3, name: "Macbook air m3 2256GB", price: 2000 },
+            { id: 4, name: "Samsung S22 Ultra", price: 1400 },
+        ];
+
+        // Tìm giá cao nhất
+        const maxPrice = Math.max(...data.map(item => item.price));
+
+        // console.log(maxPrice);
+        
+
+        // // Thêm slug vào từng sản phẩm
+        // data = data.map(item => {
+        //     const slug = item.name.toLowerCase().replaceAll(" ", "-") + "-" + item.id;
+        //     return { ...item, slug };
+        // });
+
+        // const products = document.querySelector(".products");
+
+        // // Hiển thị sản phẩm ra giao diện
+        // data.forEach(item => {
+        //     const li = document.createElement("li");
+        //     li.innerHTML = `
+        //         <a href="/products/${item.slug}">
+        //             <h2>${item.name}</h2>
+        //         </a>
+        //         <p>${item.price}</p>
+        //     `;
+        //     if (item.price === maxPrice) {
+        //         li.style.color = "red";
+        //     }
+        //     products.appendChild(li);
+        // });
+    </script>
+
+</body>
+
+</html>

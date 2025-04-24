@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" name="email" placeholder="Moi nhap du lieu....">
+    <button onclick="console.log(`hello`)" id="btn">Click me!</button>
+    <script>
+        const btnElement = document.getElementById('btn')
+        console.log({ btn });
+
+        btnElement.onclick = function () {
+            console.log('xin chao');
+
+        }
+        btnElement.addEventListener('click', function () {
+            console.log('bonjou!');
+
+        })
+        btnElement.addEventListener("click", function () {
+            console.log("konbanwa");
+            console.log(event);
+
+        })
+        const inputElement = document.getElementsByName("email")[0]
+        console.log(inputElement);
+        
+        inputElement.onchange = function () {
+            // console.log(event);
+            console.log("onchange");
+        }
+
+        inputElement.oninput = function () {
+            // console.log(event);
+            console.log(inputElement.value);
+        }
+    </script>
+</body>
+
+</html>

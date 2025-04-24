@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="text" id="nameInput" placeholder="Tên">
+    <input type="number" id="scoreInput" placeholder="Điểm">
+    <button id="addBtn">Thêm</button>
+    <ul id="studentList"></ul>
+    <script>
+        let students = [
+            { name: "An", score: 8 },
+            { name: "Bình", score: 9 }
+        ];
+        function renderStudents() {
+            let list = document.getElementById("studentList");
+            list.innerHTML = ""; // Xoá danh sách cũ
+            students.forEach((student, index) => {
+                let li = document.createElement("li");
+                li.innerText = `${index + 1}. ${student.name} - ${student.score}`;
+                list.appendChild(li);
+            });
+        }
+        document.getElementById("addBtn").addEventListener("click", function () {
+            let name = document.getElementById("nameInput").value;
+            let score = Number(document.getElementById("scoreInput").value);
+            if (name && !isNaN(score)) {
+                students.push({ name: name, score: score });
+                renderStudents(); // Gọi lại để hiển thị
+                document.getElementById("nameInput").value = "";
+                document.getElementById("scoreInput").value = "";
+            } else {
+                alert("Vui lòng nhập đúng thông tin");
+            }
+        });
+    </script>
+</body>
+
+</html>

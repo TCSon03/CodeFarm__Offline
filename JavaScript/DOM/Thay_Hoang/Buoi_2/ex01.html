@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>xin chao</h1>
+    <a href="">google</a>
+    <script>
+        let h1Element = document.getElementsByTagName('h1')[0]
+        console.log({h1Element});
+        
+        h1Element.title = "Noi dung chinh cua tieu de";
+
+        const aElement = document.getElementsByTagName('a')[0];
+        aElement.href = "https://google.com"
+
+
+        // get va set Attribute
+
+        aElement.setAttribute('aaa',"hello")
+        console.log('aElement');
+        console.log(aElement.getAttribute('aaa'))
+        
+    </script>
+</body>
+</html>
