@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 
 <body>
@@ -10,6 +10,7 @@
     <script>
         let count = document.getElementById('countdown').innerText;
         let interval;
+        let co = false;
 
         document.getElementById('startBtn').addEventListener('click', startFunction)
         document.getElementById('stopBtn').addEventListener('click', stopFunction)
@@ -17,11 +18,11 @@
         document.getElementById('resetBtn').addEventListener('click', resetFunction)
 
         function startFunction() {
+            if(co) return;
+            co = true;
             interval = setInterval(() => {
                 if (count > 0) {
-                    count = count - 1;
-                    // document.getElementById('countdown')
-                    console.log(count);
+                    count= count-1;
                     document.getElementById('countdown').innerText = count
                 }
             }, 1000)
@@ -41,10 +42,76 @@
 
         function resetFunction() {
             clearInterval(interval);
-            count = '10';
+            count = "10";
             document.getElementById('countdown').innerText = count;
         }
     </script>
 </body>
 
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<body>
+    <h1 id="countdown">10</h1>
+    <button id="startBtn">Bắt đầu</button>
+    <button id="resetBtn">Reset</button>
+    <button id="stopBtn">Dừng</button>
+    <button id="resumeBtn">Tiếp tục</button>
+
+    <script>
+        let count = 10;
+        let interval;
+        let isRunning = false;
+
+        const countdownEl = document.getElementById('countdown');
+
+        document.getElementById('startBtn').addEventListener('click', startFunction);
+        document.getElementById('stopBtn').addEventListener('click', stopFunction);
+        document.getElementById('resumeBtn').addEventListener('click', resumeFunction);
+        document.getElementById('resetBtn').addEventListener('click', resetFunction);
+
+        function startFunction() {
+            if (isRunning) return;
+            isRunning = true;
+
+            interval = setInterval(() => {
+                if (count > 0) {
+                    count--;
+                    countdownEl.innerText = count;
+                } else {
+                    clearInterval(interval);
+                    isRunning = false;
+                }
+            }, 1000);
+        }
+
+        function stopFunction() {
+            clearInterval(interval);
+            isRunning = false;
+        }
+
+        function resumeFunction() {
+            if (isRunning || count <= 0) return;
+            isRunning = true;
+
+            interval = setInterval(() => {
+                if (count > 0) {
+                    count--;
+                    countdownEl.innerText = count;
+                } else {
+                    clearInterval(interval);
+                    isRunning = false;
+                }
+            }, 1000);
+        }
+
+        function resetFunction() {
+            clearInterval(interval);
+            count = 10;
+            countdownEl.innerText = count;
+            isRunning = false;
+        }
+    </script>
+</body>
 </html>

@@ -1,18 +1,13 @@
-let question = document.querySelectorAll(".accordion-question");
-question.forEach((item) => {
-  console.log(item);
+const question = document.getElementsByClassName("accordion-question");
+const answer = document.getElementsByClassName("accordion-answer");
 
-  item.addEventListener("click", () => {
-    let answer = item.nextElementSibling;
-    answer.classList.toggle("active");
+for (let i = 0; i < question.length; i++) {
+  question[i].addEventListener("click", () => {
+    for (let j = 0; j < answer.length; j++) {
+      if (i !== j) {
+        answer[j].classList.remove("active");
+      }
+    }
+    answer[i].classList.toggle("active");
   });
-});
-
-// const q = document.querySelectorAll(".accordion-question");
-// console.log(q);
-// q.forEach((q) => {
-//   q.addEventListener("click", () => {
-//     const a = q.nextElementSibling;
-//     a.classList.toggle("active");
-//   });
-// });
+}

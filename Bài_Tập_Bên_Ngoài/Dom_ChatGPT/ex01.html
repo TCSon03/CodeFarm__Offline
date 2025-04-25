@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="input" placeholder="Nhap muc moi">
+    <button id="addBtn">Them</button>
+
+    <ul id="list"></ul>
+
+    <script>
+        const input = document.getElementById('input');
+        const addBtn = document.getElementById('addBtn');
+        const list = document.getElementById('list')
+
+        addBtn.addEventListener('click', () => {
+            const text = input.value.trim();
+            if(text !== ''){
+                const li = document.createElement('li')
+                li.innerHTML = text;
+                list.appendChild(li)
+                input.value = ''
+            }
+        })
+    </script>
+</body>
+</html>

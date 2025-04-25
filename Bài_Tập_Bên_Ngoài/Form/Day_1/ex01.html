@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="accordion">
+        <h3 onclick="toggleAccordion(this)">Phần 1</h3>
+        <div class="content">Nội dung phần 1</div>
+      
+        <h3 onclick="toggleAccordion(this)">Phần 2</h3>
+        <div class="content">Nội dung phần 2</div>
+      
+        <h3 onclick="toggleAccordion(this)">Phần 3</h3>
+        <div class="content">Nội dung phần 3</div>
+      </div>
+      
+      <script>
+        function toggleAccordion(clickedHeader) {
+          // 1. Ẩn tất cả các nội dung
+          const allContents = document.querySelectorAll(".accordion .content");
+          allContents.forEach(content => {
+            content.style.display = "none";
+          });
+      
+          // 2. Hiện phần nội dung ngay sau phần header vừa click
+          const nextContent = clickedHeader.nextElementSibling;
+          nextContent.style.display = "block";
+        }
+      </script>
+      
+      <style>
+        h3 {
+          cursor: pointer;
+          background: #ddd;
+          padding: 10px;
+          margin: 0;
+        }
+        .content {
+          display: none;
+          padding: 10px;
+          background: #f0f0f0;
+        }
+      </style>
+      
+
+</body>
+
+</html>

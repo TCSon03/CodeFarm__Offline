@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-SgOJa3DmI69IUzQ2PVdRZhwQ+dy64/BUtbMJw1MZ8t5HZApcHrRKUc4W0kG879m7" crossorigin="anonymous">
+</head>
+
+<body>
+    <form action="GET" action id="registerForm">
+        <div class="mb-3">
+            <label for="">Username</label>
+            <input type="text" placeholder="Username" class="form-control" id="username" name="username">
+        </div>
+        <div class="mb-3">
+            <label for="">Password</label>
+            <input type="password" placeholder="password" class="form-control" id="password" name="password">
+        </div>
+        <div class="mb-3">
+            <input type="radio" name="gender" value="nam">
+            <label for="">Nam</label>
+            <input type="radio" name="gender" value="nu">
+            <label for="">Nữ</label>
+            <input type="radio" name="gender" value="khac">
+            <label for="">Khác</label>
+        </div>
+        <div class="mb-3">
+            <label for="major">Major:</label>
+            <select name="cars" id="major">
+                <option value="doremon">doremon</option>
+                <option value="pokemon">pokemon</option>
+                <option value="Than dong dat viet">Than dong dat viet</option>
+                <option value="shin - cau be but chi">shin - cau be but chi</option>
+                <option value="conan - tham tu lung danh">conan - tham tu lung danh</option>
+            </select>
+        </div>
+        <div class="mb-3">
+            <input type="checkbox" name="checkbox" id="checkbox">
+            <label for="vehicle1">Tôi không đồng ý</label>
+        </div>
+
+        <div class="mb-3 ">
+            <button class="btn btn-primary w-100">Register</button>
+        </div>
+    </form>
+    <script>
+        console.log(navigator.geolocation.watchPosition());
+
+        // const registerForm = document.getElementById('registerForm')
+        // // const username = document.getElementById('username');
+        // // const password = document.getElementById('password');
+        // // const radio = document.getElementById('gender')
+        // // const select = document.getElementById('major')
+        // // const checkbox = document.getElementById('checkbox')
+        // registerForm.addEventListener('submit', function () {
+        //     event.preventDefault()
+        //     const formData = new FormData(registerForm);
+        //     const userInfor = Object.fromEntries(formData);
+
+        //     console.log(userInfor);
+
+        //     if (!userInfor.checkbox) {
+        //         console.log('loi');
+        //     }
+        //     else {
+        //         this.reset()
+        //     }
+        // })  
+    </script>
+</body>
+
+</html>
