@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Thêm và Xóa Phần Tử với DOM</title>
+  <style>
+    .container {
+      margin: 20px;
+    }
+
+    .item {
+      padding: 10px;
+      margin: 5px;
+      background-color: #f0f0f0;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Danh sách phần tử</h1>
+    <div id="list">
+      <!-- <div class="item">Phần tử 1</div> -->
+      <!-- <div class="item">Phần tử 2</div> -->
+    </div>
+    <button onclick="addItem()">Thêm phần tử</button>
+    <button onclick="removeItem()">Xóa phần tử</button>
+  </div>
+  <script>
+    let count = 1;
+    const list = document.getElementById('list')
+    function addItem() {
+      const div = document.createElement('div')
+      div.innerText = `Phần tử ${count++}`
+      div.classList.add('item')
+      list.appendChild(div)
+    }
+
+    function removeItem() {
+      let item = document.getElementsByClassName('item');
+      // console.log(item);
+
+      if (item.length > 0) {
+        list.removeChild(list.lastElementChild)
+        count--;
+      } else {
+        alert("Loi")
+      }
+    }
+    // removeItem()
+
+
+  </script>
+</body>
+
+</html>

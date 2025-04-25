@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <!-- Bài tập 1 -->
+    <!-- <h1 id="heading">Hello DOM</h1>
+    <p class="info">DOM rất thú vị</p>
+
+    <script>
+        // TODO: lấy ra phần tử h1 và p rồi in ra nội dung của chúng
+        let id = document.getElementById('heading');
+        console.log(id.innerText);
+        let clas = document.querySelector('.info')
+        console.log(clas.innerText);
+        
+    </script> -->
+
+    <!-- Bài tập 2 -->
+    <h2 id="changeText">Nội dung cũ</h2>
+
+    <script>
+        // TODO: khi trang tải xong, đổi nội dung thành "Đã đổi nội dung!"
+        let text = document.getElementById('changeText');
+        text.textContent = "Đã đổi nội dung!"
+    </script>
+
+    <!-- Bài tập 3 -->
+    <ul>
+        <li>HTML</li>
+        <li>CSS</li>
+        <li>JavaScript</li>
+    </ul>
+
+    <script>
+        // TODO: lấy tất cả các thẻ <li> rồi in ra từng dòng
+            let li = document.querySelectorAll('ul li')
+            console.log(li);
+            li.forEach((value, index,array) => {
+                console.log(value.innerHTML);
+            })
+    </script>
+</body>
+
+</html>

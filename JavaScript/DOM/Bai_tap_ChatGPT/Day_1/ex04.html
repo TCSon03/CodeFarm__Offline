@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Thêm/Xoá phần tử DOM</h1>
+    <!-- <input type="text" id="input" placeholder="Nhập mục mới">
+    <button id="addBtn">Thêm</button>
+
+    <ul id="list">
+    </ul>
+    <script>
+        const input = document.getElementById('input');
+        const addBtn = document.getElementById('addBtn');
+        const list = document.getElementById('list');
+
+        addBtn.addEventListener('click', () => {
+            const text = input.value.trim();
+            if (text !== '') {
+                const li = document.createElement('li');
+                li.innerText = text;
+
+                // Thêm nút xoá
+                const deleteBtn = document.createElement('button');
+                deleteBtn.innerText = 'Xoá';
+                deleteBtn.style.marginLeft = '10px';
+
+                deleteBtn.addEventListener('click', () => {
+                    li.remove(); // xoá chính nó
+                });
+
+                li.appendChild(deleteBtn);
+                list.appendChild(li);
+                input.value = ''; // reset ô input
+            }
+        });
+
+    </script> -->
+
+    <!-- <ul id="ul">
+
+    </ul>
+    <button onclick="changeLi()">Thêm li</button>
+    <button onclick="changeDeleteLi()">Xóa li</button>
+    <script>
+        const newItem = document.createElement('li');
+
+        function changeLi() {
+            newItem.innerText = "Mục mới"
+            document.querySelector('ul').appendChild(newItem)
+        }
+        function changeDeleteLi() {
+            newItem.remove()
+        }
+    </script> -->
+
+    <input type="text" id="input" placeholder="Nhập mục mới">
+    <button id="addBtn">Thêm</button>
+    <button id="deleteBtn">xóa</button>
+
+    <ul id="list">
+    </ul>
+
+    <script>
+        const input = document.getElementById('input');
+        const addBtn = document.getElementById('addBtn');
+        const deleteBtn = document.getElementById('deleteBtn');
+        const list = document.getElementById('list')
+
+        addBtn.addEventListener('click', () => {
+            const text = input.value.trim();
+            if (text !== '') {
+                const li = document.createElement('li')
+                li.innerText = text;
+                list.appendChild(li)
+            }
+            console.log(list.innerText);
+
+        })
+
+
+    </script>
+</body>
+
+</html>

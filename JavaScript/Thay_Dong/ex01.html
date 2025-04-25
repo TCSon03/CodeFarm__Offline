@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="countdown">10</h1>
+    <button id="startBtn">Bắt đầu</button>
+    <button id="stopBtn">Dừng</button>
+    <button id="resumeBtn">Tiếp tục</button>
+    <button id="resetBtn">Reset</button>
+    <script>
+        let countdown = document.getElementById('countdown').innerText;
+
+        let interval;
+
+        document.getElementById('startBtn').addEventListener('click', startFuntion)
+        document.getElementById('stopBtn').addEventListener('click', stopFuntion)
+        document.getElementById('resumeBtn').addEventListener('click', resumeFuntion)
+        document.getElementById('resetBtn').addEventListener('click', resetFuntion)
+
+        function startFuntion() {
+            interval = setInterval(() => {
+                if (countdown > 0) {
+                    countdown = countdown - 1;
+                    document.getElementById('countdown').innerHTML = countdown
+                }
+            }, 1000)
+        }
+        function stopFuntion() {
+            clearInterval(interval)
+        }
+        function resumeFuntion() {
+            interval = setInterval(() => {
+                if (countdown > 0) {
+                    countdown = countdown - 1;
+                    document.getElementById('countdown').innerHTML = countdown
+                }
+            }, 1000)
+        }
+        function resetFuntion() {
+            clearInterval(interval)
+            countdown = '10'
+            document.getElementById('countdown').innerText = countdown;
+        }
+    </script>
+</body>
+
+</html>

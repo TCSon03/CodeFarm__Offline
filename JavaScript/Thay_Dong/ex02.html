@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+    <h1 id="countdown">10</h1>
+    <button id="startBtn">Bắt đầu</button>
+    <button id="resetBtn">Reset</button>
+    <button id="stopBtn">Dừng</button>
+    <button id="resumeBtn">Tiếp tục</button>
+    <script>
+        let count = document.getElementById('countdown').innerText;
+        let interval;
+
+        document.getElementById('startBtn').addEventListener('click', startFunction)
+        document.getElementById('stopBtn').addEventListener('click', stopFunction)
+        document.getElementById('resumeBtn').addEventListener('click', resumeFunction)
+        document.getElementById('resetBtn').addEventListener('click', resetFunction)
+
+        function startFunction() {
+            interval = setInterval(() => {
+                if (count > 0) {
+                    count = count - 1;
+                    // document.getElementById('countdown')
+                    console.log(count);
+                    document.getElementById('countdown').innerText = count
+                }
+            }, 1000)
+        }
+        function stopFunction() {
+            clearInterval(interval)
+        }
+
+        function resumeFunction() {
+            interval = setInterval(() => {
+                if (count > 0) {
+                    count--;
+                    document.getElementById('countdown').innerText = count;
+                }
+            }, 1000)
+        }
+
+        function resetFunction() {
+            clearInterval(interval);
+            count = '10';
+            document.getElementById('countdown').innerText = count;
+        }
+    </script>
+</body>
+
+</html>

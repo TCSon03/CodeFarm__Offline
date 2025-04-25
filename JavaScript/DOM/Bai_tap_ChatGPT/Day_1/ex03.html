@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Làm việc với class và style</h1>
+    <!-- <button id="btn">Bấm tôi</button>
+    <div id="box" class="box">Hộp màu</div>
+
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background: gray;
+            margin-top: 10px;
+        }
+
+        .active {
+            background: green;
+        }
+    </style>
+    <script>
+        const btn = document.getElementById('btn');
+        const box = document.getElementById('box');
+
+        btn.addEventListener('click', () => {
+            box.classList.toggle('active');
+            box.classList.toggle('btn');
+        });
+
+    </script> -->
+
+    <button id="changeColor">Đổi màu</button>
+    <button id="reset">Reset</button>
+    <div id="box" class="box"></div>
+
+    <style>
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color: gray;
+            margin-top: 10px;
+        }
+
+        .highlight {
+            background-color: orange;
+        }
+    </style>
+
+    <script>
+        const changeBtn = document.getElementById('changeColor');
+        const resetBtn = document.getElementById('reset');
+        const box = document.getElementById('box');
+
+        changeBtn.addEventListener('click', () => {
+            // TODO: thêm class highlight
+            box.classList.add('highlight')
+        });
+
+        resetBtn.addEventListener('click', () => {
+            // TODO: xoá class highlight
+            box.classList.remove('highlight')
+        });
+
+    </script>
+
+</body>
+
+</html>

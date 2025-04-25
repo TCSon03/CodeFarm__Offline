@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Thay đổi nội dung và thuộc tính DOM</h1>
+    <!-- Bài tập 1 -->
+    <!-- <p id="newText">xin chào</p>
+    <button onclick="changeText()">Thay đổi</button>
+    <input type="text" id="thucthi">
+    <script>
+        function changeText(){
+            let input = document.getElementById('thucthi').value;
+            document.getElementById('newText').innerText = input
+        }
+    </script> -->
+
+    <!-- Bài tập 2 -->
+    <!-- <img src="https://deviet.vn/wp-content/uploads/2019/04/vuong-quoc-anh.jpg" alt="hinh anh 1" id="img">
+    <button onclick="changeImg()">Click</button>
+    <script>
+        function changeImg(){
+            document.getElementById('img').setAttribute("src",'https://upload.wikimedia.org/wikipedia/commons/thumb/b/be/Flag_of_England.svg/250px-Flag_of_England.svg.png')
+        }
+    </script> -->
+
+    <!-- Bài tập 3 -->
+    <p id="text">Xin chào mọi người tôi là Code Cỏ</p>
+    <button onclick="changeColor()">Click đổi màu</button>
+    <script>
+        // function changeColor(){
+        //     document.getElementById('text').style.backgroundColor = 'blue'
+        // }
+
+        // random màu
+
+        function changeColor(){
+            const color = ['blue', 'orange', 'red', 'green', 'gray']
+            const randomColor = color[Math.floor(Math.random() * color.length)]
+            document.getElementById('text').style.backgroundColor = randomColor
+        }
+        // changeColor()
+    </script>
+</body>
+
+</html>
