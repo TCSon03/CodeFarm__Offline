@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        function getUser(userId, callback) {
+            setTimeout(() => {
+                const user = { userId: userId, name: "Nguyễn Văn A" };
+                callback(user);
+            }, 1000);
+        }
+        function getPosts(userId, callback) {
+            setTimeout(() => {
+                const posts = [
+                    { postId: 1, userId: userId, title: "Bài viết 1" },
+                    { postId: 2, userId: userId, title: "Bài viết 2" },
+                ];
+                callback(posts);
+            })
+        }
+        function getComments(post, callback) {
+            setTimeout(() => {
+                const comments = [
+                    { commentId: 1, postId: post.postId, content: "Bình luận 1" },
+                    { commentId: 2, postId: post.postId, content: "Bình luận 2" },
+                ];
+                callback(comments);
+            })
+        }
+
+        // Cách 1: callback
+        getUser(1, (user) => {
+            console.log(user);
+            getPosts(user.userId, (post) => {
+                console.log(post);
+                getComments(post[0], (comment) => {
+                    console.log(comment[0]);
+                })
+            })
+        })
+
+        
+    </script>
+</body>
+
+</html>

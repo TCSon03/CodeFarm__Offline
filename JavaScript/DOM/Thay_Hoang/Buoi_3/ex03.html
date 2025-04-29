@@ -47,28 +47,27 @@
         </div>
     </form>
     <script>
-        console.log(navigator.geolocation.watchPosition());
 
-        // const registerForm = document.getElementById('registerForm')
-        // // const username = document.getElementById('username');
-        // // const password = document.getElementById('password');
-        // // const radio = document.getElementById('gender')
-        // // const select = document.getElementById('major')
-        // // const checkbox = document.getElementById('checkbox')
-        // registerForm.addEventListener('submit', function () {
-        //     event.preventDefault()
-        //     const formData = new FormData(registerForm);
-        //     const userInfor = Object.fromEntries(formData);
+        const registerForm = document.getElementById('registerForm')
+        // const username = document.getElementById('username');
+        // const password = document.getElementById('password');
+        // const radio = document.getElementById('gender')
+        // const select = document.getElementById('major')
+        // const checkbox = document.getElementById('checkbox')
+        registerForm.addEventListener('submit', function () {
+            event.preventDefault()
+            const formData = new FormData(registerForm);
+            const userInfor = Object.fromEntries(formData);
 
-        //     console.log(userInfor);
+            console.log(userInfor);
 
-        //     if (!userInfor.checkbox) {
-        //         console.log('loi');
-        //     }
-        //     else {
-        //         this.reset()
-        //     }
-        // })  
+            if (!userInfor.checkbox) {
+                console.log('loi');
+            }
+            else {
+                this.reset()
+            }
+        })  
     </script>
 </body>
 

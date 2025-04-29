@@ -119,15 +119,28 @@
     </div>
     <script>
         const input = document.getElementById('display');
+
         function appendToDisplay(value) {
-            let number = value
-            document.getElementById('display').value += number
+            if (input.value === '0') {
+                input.value = value
+            }
+            else {
+                input.value += value
+            }
         }
         function clearDisplay() {
             document.getElementById('display').value = '0'
         }
-        function deleteLast(){
-            
+        function deleteLast() {
+            if (input.value.length === 1) {
+                input.value = '0'
+            }
+            else {
+                input.value = input.value.slice(0, -1);
+            }
+        }
+        function calculate() {
+            input.value = eval(input.value);
         }
 
     </script>

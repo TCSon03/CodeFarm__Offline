@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        async function callApi(params) {
+            try {
+                const user = await getUser()
+                const post = await getPosts(user.userId)
+                await getComments(post[0])
+            } catch (error) {
+                console.log(error);
+            }
+        }
+    </script>
+</body>
+
+</html>

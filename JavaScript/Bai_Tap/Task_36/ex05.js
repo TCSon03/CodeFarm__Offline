@@ -3,7 +3,7 @@ const students = [
   { id: 2, name: "Trần Thị B", age: 19, city: "TP.HCM" },
   { id: 3, name: "Lê Văn C", age: 21, city: "Đà Nẵng" },
 ];
-const titleTable = document.getElementById('dataTable');
+const titleTable = document.getElementById("dataTable");
 titleTable.innerHTML = `
   <thead>
       <tr>
@@ -13,20 +13,19 @@ titleTable.innerHTML = `
           <th>City</th>
       </tr>
   </thead>
-`
+`;
 titleTable.style.border = "2px solid blue";
 titleTable.style.background = "#ccc";
 
-
-const bodyTable = document.createElement('tbody')
-titleTable.appendChild(bodyTable)
+const bodyTable = document.createElement("tbody");
+titleTable.appendChild(bodyTable);
 students.forEach((value) => {
-  const log = document.createElement('tr');
+  const log = document.createElement("tr");
   log.innerHTML = `
           <td>${value.id}</th>
           <td>${value.name}</td>
           <td>${value.age}</td>
           <td>${value.city}</td>
-  `
-  bodyTable.appendChild(log)
-  })
+  `;
+  bodyTable.appendChild(log);
+});

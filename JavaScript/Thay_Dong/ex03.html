@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Operations</title>
+    <style>
+        table, th, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Table Operations (Add, Edit, Delete)</h2>
+    <table id="myTable">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Age</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>John</td>
+                <td>30</td>
+                <td><button onclick="editRow(this)">Edit</button> <button onclick="deleteRow(this)">Delete</button></td>
+            </tr>
+            <tr>
+                <td>Alice</td>
+                <td>25</td>
+                <td><button onclick="editRow(this)">Edit</button> <button onclick="deleteRow(this)">Delete</button></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <br>
+    <h3>Add New Row:</h3>
+    <input type="text" id="name" placeholder="Name">
+    <input type="number" id="age" placeholder="Age">
+    <button onclick="addRow()">Add Row</button>
+
+    <script>
+        // Thêm dòng vào bảng
+        function addRow() {
+            const table = document.getElementById("myTable").getElementsByTagName('tbody')[0];
+            const name = document.getElementById("name").value;
+            const age = document.getElementById("age").value;
+
+            // Tạo một dòng mới
+            const newRow = table.insertRow(table.rows.length);
+
+            // Tạo các ô cho dòng mới
+            const cell1 = newRow.insertCell(0);
+            const cell2 = newRow.insertCell(1);
+            const cell3 = newRow.insertCell(2);
+
+            // Thêm dữ liệu vào các ô
+            cell1.textContent = name;
+            cell2.textContent = age;
+
+            // Thêm các nút "Edit" và "Delete"
+            cell3.innerHTML = '<button onclick="editRow(this)">Edit</button> <button onclick="deleteRow(this)">Delete</button>';
+
+            // Xóa giá trị trong các input sau khi thêm
+            document.getElementById("name").value = '';
+            document.getElementById("age").value = '';
+        }
+
+        // Sửa dữ liệu trong bảng
+        function editRow(button) {
+            const row = button.parentNode.parentNode; // Lấy dòng chứa nút "Edit"
+            const nameCell = row.cells[0];
+            const ageCell = row.cells[1];
+
+            // Mở một prompt để nhập tên và tuổi mới
+            const newName = prompt("Edit Name:", nameCell.textContent);
+            const newAge = prompt("Edit Age:", ageCell.textContent);
+
+            if (newName !== null && newAge !== null) {
+                nameCell.textContent = newName;
+                ageCell.textContent = newAge;
+            }
+        }
+
+        // Xóa một dòng trong bảng
+        function deleteRow(button) {
+            const row = button.parentNode.parentNode; // Lấy dòng chứa nút "Delete"
+            row.parentNode.removeChild(row); // Xóa dòng
+        }
+    </script>
+
+</body>
+</html>
