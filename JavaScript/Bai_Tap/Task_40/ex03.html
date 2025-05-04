@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1>Bai 3</h1>
+    <script>
+        function getUser(userId) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve({ id: userId, name: "John", age: 30 });
+                }, 1000);
+            });
+        }
+
+        function getPurchases(userId) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve([
+                        { id: 1, userId: userId, product: "Laptop", price: 1000 },
+                        { id: 2, userId: userId, product: "Phone", price: 2000 },
+                    ]);
+                }, 1000);
+            });
+        }
+
+        function getProductDetails(productId, productName) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    resolve({ id: productId, name: productName, price: 1000 });
+                }, 1000);
+            });
+        }
+
+        async function getData() {
+            try {
+                const user = await getUser(1);
+                console.log(user);
+
+                const purchases = await getPurchases(user.id);
+                console.log(purchases);
+
+                const total = purchases.reduce((acc, cur) => acc + cur.price, 0);
+                console.log("Total:", total);
+
+                const productDetails = await Promise.all(
+                    purchases.map((product) => {
+                        return getProductDetails(product.id, product.product);
+                    })
+                );
+
+                productDetails.forEach((product) => {
+                    console.log(product);
+                });
+
+            } catch (error) {
+                console.error(error);
+            }
+        }
+
+        getData();
+    </script>
+</body>
+
+</html>
