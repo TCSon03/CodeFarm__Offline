@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <form action="" id="form-students">
+        <div class="form-group">
+            <label for="">Name: </label>
+            <input type="text" id="inputName" placeholder="Name...">
+            <p id="errorName" class="error"></p>
+        </div>
+        <div class="form-group">
+            <label for="">Math: </label>
+            <input type="number" id="inputMath" placeholder="Math...">
+            <p id="errorMath" class="error"></p>
+        </div>
+        <div class="form-group">
+            <label for="">English: </label>
+            <input type="number" id="inputEnglish" placeholder="English...">
+            <p id="errorEnglish" class="error"></p>
+        </div>
+        <div class="form-group">
+            <label for="">Science: </label>
+            <input type="number" id="inputScience" placeholder="Science...">
+            <p id="errorScience" class="error"></p>
+        </div>
+        <div class="form-group">
+            <button type="submit" id="btn_add">Thêm</button>
+            <button type="submit" id="btn_edit" style="display: none;">Sua</button>
+        </div>
+    </form>
+    <div class="search">
+        <input type="text" id="searchName" placeholder="Name..." oninput="searchStudent()">
+    </div>
+    <div class="filter">
+        <select name="" id="">
+            <option value="">Tất cả</option>
+            <option value="">Cao -> Thấp</option>
+            <option value="">Thấp -> Cao</option>
+        </select>
+    </div>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Điểm Toán</th>
+                <th>Điểm Tiếng Anh</th>
+                <th>Điểm Khoa Học</th>
+                <th>Điểm trung bình</th>
+                <th>Học Lực</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody id="todo-students">
+
+        </tbody>
+    </table>
+    <script src="main.js"></script>
+</body>
+
+</html>

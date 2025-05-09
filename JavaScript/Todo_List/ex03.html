@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <form action="" id="todo-form">
+    <div class="form-group">
+      <label for="inputTitle">Tiêu đề</label>
+      <input type="text" placeholder="Tên công việc..." id="inputTitle">
+      <p id="errorTitle"></p>
+    </div>
+    <div class="form-group">
+      <label for="inputDes">Mô tả</label>
+      <input type="text" placeholder="Mô tả chi tiết" id="inputDes">
+      <p id="errorDes"></p>
+    </div>
+    <div class="form-group">
+      <button type="submit">Thêm</button>
+    </div>
+  </form>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+
+      </tr>
+    </thead>
+    <tbody id="todo-list">
+
+    </tbody>
+  </table>
+  <script>
+    const form = document.getElementById('todo-form');
+    const titleInput = document.getElementById('inputTitle')
+    const desInput = document.getElementById('inputDes')
+    const titleError = document.getElementById('errorTitle')
+    const desError = document.getElementById('errorDes')
+    const todoList = document.getElementById('todo-list')
+
+    function randomID(length) {
+      let characters = "ABCDEFGHJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      let id = 'todo-'
+      for (let i = 0; i < length; i++) {
+        let index = Math.floor(Math.random() * characters.length);
+        id += characters[index]
+      }
+      return id
+    }
+
+    function getData() {
+      return JSON.parse(localStorage.getItem('todos') || "[]")
+    }
+    function handleLocal(todo) {
+      localStorage.setItem('todos', JSON.stringify(todo))
+    }
+    function renderUI(dataList) {
+      todoList.innerHTML = ''
+      dataList.forEach(element => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+        <td>${element.id}</td>
+        <td>${element.title}</td>
+        <td>${element.description}</td>
+        <td><button onclick="deleteTodo('${element.id}')">xoa</button></td>
+      `
+        todoList.appendChild(tr)
+      });
+    }
+    function addTodo(e) {
+      e.preventDefault()
+      const titleValue = titleInput.value.trim();
+      const desValue = desInput.value.trim();
+
+      if (titleValue === '') {
+        titleError.style.color = 'red'
+        titleError.innerHTML = 'Khong duoc de trong'
+        return
+      } else {
+        titleError.innerHTML = ''
+      }
+
+      if (desValue === '') {
+        desError.style.color = 'red'
+        desError.innerHTML = 'Khong duoc de trong'
+        return
+      } else {
+        desError.innerHTML = ''
+      }
+      const todo = {
+        id: randomID(8),
+        title: titleValue,
+        description: desValue
+      }
+      const newData = [...getData(), todo]
+      handleLocal(newData);
+      renderUI(newData)
+      form.reset()
+    }
+    function deleteTodo(id) {
+      const oldData = getData();
+      const newData = oldData.filter((element) => element.id !== id)
+      handleLocal(newData);
+      renderUI(newData)
+    }
+    form.addEventListener('submit', addTodo)
+    renderUI(getData())
+  </script>
+</body>
+
+</html> 

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" id="todo-form">
+        <div class="form-group">
+            <label for="inputTitle">Tiêu đề</label>
+            <input type="text" placeholder="Tên công việc..." id="inputTitle">
+            <p id="errorTitle"></p>
+        </div>
+        <div class="form-group">
+            <label for="inputDes">Mô tả</label>
+            <input type="text" placeholder="Mô tả chi tiết" id="inputDes">
+            <p id="errorDes"></p>
+        </div>
+        <div class="form-group">
+            <button type="submit" id="btn">Thêm</button>
+        </div>
+    </form>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Description</th>
+
+            </tr>
+        </thead>
+        <tbody id="todo-list">
+        </tbody>
+    </table>
+    <script>
+        const form = document.getElementById('todo-form');
+        const inputTit = document.getElementById('inputTitle')
+        const inputDes = document.getElementById('inputDes')
+        const todoList = document.getElementById('todo-list')
+        const btn = document.getElementById('btn')
+
+        let isEditing = null
+
+        function random(length) {
+            const characters = "ABCDEFGHJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            console.log(characters.length);
+
+            let id = 'todo-'
+            for (let i = 0; i < length; i++) {
+                const index = Math.floor(Math.random() * characters.length);
+                id += characters[index]
+            }
+            return id
+        }
+        console.log(random(7));
+
+        function getData() {
+            return JSON.parse(localStorage.getItem('todos') || '[]')
+        }
+        function handleLocal(todo) {
+            localStorage.setItem('todos', JSON.stringify(todo))
+        }
+
+        function render(dataList) {
+            todoList.innerHTML = ``
+            dataList.forEach(element => {
+                const tr = document.createElement('tr')
+                tr.innerHTML = `
+                    <td>${element.id}</td>
+                    <td>${element.title}</td>
+                    <td>${element.description}</td>
+                    <td><button onclick="deleteTodo('${element.id}')">xoa</button></td>
+                    <td><button onclick="updateTodo('${element.id}')">sua</button></td>
+                `
+                todoList.appendChild(tr)
+            });
+        }
+        function addTodo(e) {
+            e.preventDefault();
+            todoUI = getData()
+            const tit = inputTit.value.trim();
+            const des = inputDes.value.trim()
+
+            if (isEditing) {
+                const todoElement = todoUI.find((element) => element.id === isEditing)
+                if(todoElement){
+                    todoElement.title = tit
+                    todoElement.description = des
+                    handleLocal(todoUI)
+                    render(getData())
+                    form.reset()
+                }
+            }
+            else {
+                const todo = {
+                    id: random(5),
+                    title: tit,
+                    description: des
+                }
+                const newData = [...getData(), todo];
+                handleLocal(newData);
+                render(newData)
+                form.reset()
+            }
+        }
+
+        function deleteTodo(id) {
+            console.log(id);
+            const dulieu = getData();
+            const newData = dulieu.filter(element => element.id !== id)
+            handleLocal(newData);
+            render(newData)
+        }
+
+        function updateTodo(id) {
+            const todos = getData();
+            const todo = todos.find((element) => element.id === id)
+            if (todo) {
+                isEditing = id;
+                inputTit.value = todo.title
+                inputDes.value = todo.description
+                btn.innerHTML = 'sua'
+            }
+        }
+
+        form.addEventListener('submit', addTodo)
+        render(getData())
+
+    </script>
+</body>
+
+</html>

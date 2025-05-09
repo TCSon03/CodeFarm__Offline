@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo-List</title>
+
+</head>
+
+<body>
+  <form action="" id="todo-form">
+    <div class="form-group">
+      <label for="inputTitle">Tiêu đề</label>
+      <input type="text" placeholder="Tên công việc..." id="inputTitle">
+      <p id="errorTitle"></p>
+    </div>
+    <div class="form-group">
+      <label for="inputDes">Mô tả</label>
+      <input type="text" placeholder="Mô tả chi tiết" id="inputDes">
+      <p id="errorDes"></p>
+    </div>
+    <div class="form-group">
+      <button type="submit">Thêm</button>
+    </div>
+  </form>
+  <table border="1">
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Title</th>
+        <th>Description</th>
+      </tr>
+    </thead>
+    <tbody id="todo-list">
+
+    </tbody>
+  </table>
+  <script>
+    const form = document.getElementById('todo-form');
+    const titleInput = document.getElementById('inputTitle');
+    const desInput = document.getElementById('inputDes');
+    const todoList = document.getElementById('todo-list');
+    const errorTitle = document.getElementById('errorTitle');
+    const errorDes = document.getElementById('errorDes');
+
+    // Hàm tạo ID ngẫu nhiên
+    function randomId(length) {
+      const characters = "ABCDEFGHJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+      let id = 'todo-';
+      for (let i = 0; i < length; i++) {
+        let index = Math.floor(Math.random() * characters.length);
+        id += characters[index];
+      }
+      return id;
+    }
+
+    // Hàm lấy dữ liệu từ localStorage
+    function getData() {
+      return JSON.parse(localStorage.getItem('todos') || '[]');
+    }
+
+    // Hàm lưu dữ liệu vào localStorage
+    function handleLocal(todo) {
+      localStorage.setItem('todos', JSON.stringify(todo));
+    }
+
+    let todoUI = getData()
+
+
+    // Hàm hiển thị danh sách công việc
+    function renderUI(dataList) {
+      console.log(dataList);
+
+      todoList.innerHTML = '';
+      dataList.forEach(element => {
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td>${element.id}</td>
+          <td>${element.title}</td>
+          <td>${element.description}</td>
+        `
+        todoList.appendChild(tr)
+      });
+    }
+
+    // hàm thêm dữ liệu
+    function addTodo(){
+      todoUI = getData();
+      const titleValue = titleInput.value.trim();
+      const desValue = desInput.value.trim();
+      const todo = {
+        id: randomId(5),
+        title: titleValue,
+        description: desValue,
+      }
+      handleLocal([...todoUI, todo])
+      renderUI(todoUI)
+    }
+    form.addEventListener('submit', addTodo)
+    renderUI(todoUI)
+
+
+  </script>
+</body>
+
+</html>
