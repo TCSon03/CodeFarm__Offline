@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="products"></div>
+    <div class="paginate">
+        <button id="preview">preview</button>
+        <button id="current-page"></button>
+        <button id="next">next</button>
+    </div>
+
+    <script>
+        const productsEle = document.getElementById("products");
+        const previewEle = document.getElementById("preview");
+        const nextEle = document.getElementById("next");
+        const currentPageEle = document.getElementById("current-page");
+
+        let page = 1;
+        let limit = 12;
+        let skip = (page - 1) * limit;
+        let totalProducts;
+
+        export const fetchProducts = async (limit = 12, skip = 0) => {
+            try {
+                const res = await fetch(`https://dummyjson.com/products?limit=${limit}&skip=${skip}`)
+            } catch (error) {
+                console.log(error);
+
+            }
+        }
+        
+    </script>
+</body>
+
+</html>

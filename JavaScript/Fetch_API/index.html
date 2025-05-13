@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="products" class="products"></div>
+    <div class="paginate">
+        <button id="preview">Prev</button>
+        <span id="current-page">1</span>
+        <button id="next">Next</button>
+    </div>
+
+    <script>
+        const product = document.getElementById('products');
+        const preview = document.getElementById('preview');
+        const current = document.getElementById('current-page');
+        const next = document.getElementById('next');
+
+        let page = 1;
+        const limit = 10;
+
+        const fetchProducts = async (limit = 10, skip = 0) => {
+            try {
+                const res = await fetch(`https://dummyjson.com/products?limit=${limit}&skip=${skip}`);
+                console.log(res);
+                
+                const { products } = await res.json();
+                console.log(products);
+                
+                renderUI(products);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        const renderUI = (products) => {
+            product.innerHTML = products.map(p => `
+            <div class="product-item">
+                <h3>${p.title}</h3>
+                <h3><img src="${p.thumbnail}"></h3>
+                <p>Price: $${p.price}</p>
+            </div>
+        `).join('');
+        };
+
+        // Event listeners
+        next.addEventListener('click', () => {
+            page++;
+            current.textContent = page;
+            fetchProducts(limit, (page - 1) * limit);
+        });
+
+        preview.addEventListener('click', () => {
+            if (page > 1) {
+                page--;
+                current.textContent = page;
+                fetchProducts(limit, (page - 1) * limit);
+            }
+        });
+
+        // Initial load
+        fetchProducts(limit, 0);
+    </script>
+
+</body>
+
+</html>
